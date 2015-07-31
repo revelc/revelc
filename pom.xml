@@ -46,6 +46,7 @@
     <url>https://github.com/revelc/revelc/issues</url>
   </issueManagement>
   <properties>
+    <gpg.useagent>true</gpg.useagent>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <!-- the maven-release-plugin makes this recommendation, due to plugin bugs -->
