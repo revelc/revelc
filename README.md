@@ -36,4 +36,4 @@ This plugin uses a 1-up counter for its versioning.
 [si]: https://img.shields.io/github/stars/revelc/revelc.svg
 [sl]: https://github.com/revelc/revelc/stargazers
 [li]: http://img.shields.io/badge/license-ASL-blue.svg
-[ll]: https://github.com/revelc/revelc/blob/master/license.txt
+[ll]: https://github.com/revelc/revelc/blob/master/LICENSE
