@@ -10,7 +10,7 @@
   <artifactId>revelc</artifactId>
   <version>3-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Revelc Parent</name>
+  <name>Revelc Parent POM</name>
   <description>Parent pom to configure common project build tools for Revelc projects</description>
   <url>http://code.revelc.net/revelc</url>
   <organization>
