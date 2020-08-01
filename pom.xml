@@ -366,7 +366,7 @@
                 </requireJavaVersion>
                 <requireMavenVersion>
                   <version>[${version.maven-min},)</version>
-                  <message>This project requires Maven ${maven.min-version} or later to build</message>
+                  <message>This project requires Maven ${version.maven-min} or later to build</message>
                 </requireMavenVersion>
               </rules>
             </configuration>
