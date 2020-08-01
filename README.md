@@ -25,7 +25,7 @@ Parent pom for revelc projects
 
 This plugin uses a 1-up counter for its versioning.
 
-[ti]: https://travis-ci.org/revelc/revelc.svg?branch=master
+[ti]: https://travis-ci.org/revelc/revelc.svg?branch=main
 [tl]: https://travis-ci.org/revelc/revelc
 [mi]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc/badge.svg
 [ml]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc
@@ -36,4 +36,4 @@ This plugin uses a 1-up counter for its versioning.
 [si]: https://img.shields.io/github/stars/revelc/revelc.svg
 [sl]: https://github.com/revelc/revelc/stargazers
 [li]: http://img.shields.io/badge/license-ASL-blue.svg
-[ll]: https://github.com/revelc/revelc/blob/master/LICENSE
+[ll]: https://github.com/revelc/revelc/blob/main/LICENSE

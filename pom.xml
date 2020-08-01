@@ -12,7 +12,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.revelc.code</groupId>
   <artifactId>revelc</artifactId>
@@ -20,7 +20,7 @@
   <packaging>pom</packaging>
   <name>Revelc Parent POM</name>
   <description>Parent pom to configure common project build tools for Revelc projects</description>
-  <url>http://code.revelc.net/revelc</url>
+  <url>https://code.revelc.net/revelc</url>
   <inceptionYear>2015</inceptionYear>
   <organization>
     <name>Revelc</name>
@@ -41,10 +41,6 @@
   <mailingLists>
     <mailingList />
   </mailingLists>
-  <!-- required for some plugins; notably, versions-maven-plugin -->
-  <prerequisites>
-    <maven>${maven.min-version}</maven>
-  </prerequisites>
   <scm>
     <connection>scm:git:https://github.com/revelc/revelc.git</connection>
     <developerConnection>scm:git:git@github.com:revelc/revelc.git</developerConnection>
@@ -69,19 +65,20 @@
     </snapshotRepository>
   </distributionManagement>
   <properties>
-    <findbugs.version>3.0.5</findbugs.version>
     <github.site.repositoryName>${project.artifactId}</github.site.repositoryName>
     <github.site.repositoryOwner>revelc</github.site.repositoryOwner>
     <gpg.useagent>true</gpg.useagent>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.min-version>3.2.5</maven.min-version>
+    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <!-- skip standard site deployment, because site is deployed using github plugin instead -->
     <maven.site.deploy.skip>true</maven.site.deploy.skip>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <revelc.releaseArgs />
-    <surefire.version>2.20.1</surefire.version>
+    <version.java-min>11</version.java-min>
+    <version.maven-min>3.6.0</version.maven-min>
+    <version.surefire>3.0.0-M3</version.surefire>
   </properties>
   <repositories>
     <repository>
@@ -102,7 +99,7 @@
         <plugin>
           <groupId>com.github.ekryd.sortpom</groupId>
           <artifactId>sortpom-maven-plugin</artifactId>
-          <version>2.8.0</version>
+          <version>2.10.0</version>
           <configuration>
             <createBackupFile>false</createBackupFile>
             <expandEmptyElements>false</expandEmptyElements>
@@ -127,22 +124,22 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.6</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.17</version>
+          <version>3.1.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.1.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.8.1</version>
           <configuration>
             <compilerArgs>
               <arg>-Xlint:-processing</arg>
@@ -158,12 +155,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.10</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
+          <version>3.0.0-M1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -173,12 +170,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>1.4.1</version>
+          <version>3.0.0-M2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${surefire.version}</version>
+          <version>${version.surefire}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -188,17 +185,17 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+          <version>3.0.0-M1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-invoker-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.2.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.1.2</version>
           <configuration>
             <archive>
               <manifest>
@@ -211,17 +208,17 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.10.3</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>3.4</version>
+          <version>3.6.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>2.9</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -239,52 +236,52 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
-          <version>1.5</version>
+          <version>1.7.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>3.1.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
-          <version>1.9.5</version>
+          <version>1.11.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-publish-plugin</artifactId>
-          <version>1.1</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.8.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.2.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>${surefire.version}</version>
+          <version>${version.surefire}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
-          <version>${surefire.version}</version>
+          <version>${version.surefire}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.3.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
-          <version>0.12</version>
+          <version>0.13</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -292,9 +289,9 @@
           <version>2.8</version>
         </plugin>
         <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
-          <version>${findbugs.version}</version>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.0.4</version>
           <configuration>
             <xmlOutput>true</xmlOutput>
             <effort>Max</effort>
@@ -307,12 +304,12 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.2</version>
+          <version>2.7</version>
         </plugin>
         <plugin>
           <groupId>org.gaul</groupId>
           <artifactId>modernizer-maven-plugin</artifactId>
-          <version>1.4.0</version>
+          <version>1.8.0</version>
           <configuration>
             <javaVersion>${maven.compiler.target}</javaVersion>
           </configuration>
@@ -354,13 +351,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>animal-sniffer-enforcer-rule</artifactId>
-            <version>1.15</version>
-          </dependency>
-        </dependencies>
         <executions>
           <execution>
             <id>enforce-basic</id>
@@ -371,31 +361,13 @@
             <configuration>
               <rules>
                 <requireJavaVersion>
-                  <version>[${maven.compiler.target},)</version>
-                  <message>This project requires Java ${maven.compiler.target} or later</message>
+                  <version>[${version.java-min},)</version>
+                  <message>This project requires Java ${version.java-min} or later to build</message>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[${maven.min-version},)</version>
-                  <message>This project requires Maven ${maven.min-version} or later</message>
+                  <version>[${version.maven-min},)</version>
+                  <message>This project requires Maven ${maven.min-version} or later to build</message>
                 </requireMavenVersion>
-              </rules>
-            </configuration>
-          </execution>
-          <execution>
-            <id>enforce-java-signatures</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <phase>process-test-classes</phase>
-            <configuration>
-              <rules>
-                <checkSignatureRule implementation="org.codehaus.mojo.animal_sniffer.enforcer.CheckSignatureRule">
-                  <signature>
-                    <groupId>org.codehaus.mojo.signature</groupId>
-                    <artifactId>java18</artifactId>
-                    <version>1.0</version>
-                  </signature>
-                </checkSignatureRule>
               </rules>
             </configuration>
           </execution>
