@@ -12,28 +12,22 @@
   limitations under the License.
 -->
 
-[![Build Status][ti]][tl] [![Maven Central][mi]][ml] [![Issues][ii]][il]
-[![Forks][fi]][fl] [![Stars][si]][sl] [![Apache License][li]][ll]
+[![mvn verify][ci_img]][ci_link]
+[![Maven Central][maven_img]][maven_link]
+[![License][license_img]][license_link]
 
-revelc
-======
+# revelc
 
 View documentation at:
-http://code.revelc.net/revelc
+https://code.revelc.net/revelc
 
 Parent pom for revelc projects
 
 This plugin uses a 1-up counter for its versioning.
 
-[ti]: https://travis-ci.org/revelc/revelc.svg?branch=main
-[tl]: https://travis-ci.org/revelc/revelc
-[mi]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc/badge.svg
-[ml]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc
-[ii]: https://img.shields.io/github/issues/revelc/revelc.svg
-[il]: https://github.com/revelc/revelc/issues
-[fi]: https://img.shields.io/github/forks/revelc/revelc.svg
-[fl]: https://github.com/revelc/revelc/network
-[si]: https://img.shields.io/github/stars/revelc/revelc.svg
-[sl]: https://github.com/revelc/revelc/stargazers
-[li]: http://img.shields.io/badge/license-ASL-blue.svg
-[ll]: https://github.com/revelc/revelc/blob/main/LICENSE
+[ci_img]: https://github.com/revelc/revelc/workflows/mvn%20verify/badge.svg
+[ci_link]: https://github.com/revelc/revelc/actions
+[license_img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
+[license_link]: https://github.com/revelc/revelc/blob/main/LICENSE
+[maven_img]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc/badge.svg
+[maven_link]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc

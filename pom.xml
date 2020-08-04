@@ -51,6 +51,10 @@
     <system>GitHub</system>
     <url>https://github.com/revelc/revelc/issues</url>
   </issueManagement>
+  <ciManagement>
+    <system>GitHub</system>
+    <url>https://github.com/revelc/revelc/actions</url>
+  </ciManagement>
   <distributionManagement>
     <!-- https://issues.sonatype.org/browse/OSSRH-15142 -->
     <repository>
