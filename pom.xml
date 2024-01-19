@@ -117,7 +117,6 @@
     <sort.createBackupFile>false</sort.createBackupFile>
     <sort.expandEmptyElements>false</sort.expandEmptyElements>
     <sort.ignoreLineSeparators>false</sort.ignoreLineSeparators>
-    <sort.indentSchemaLocation>true</sort.indentSchemaLocation>
     <sort.keepBlankLines>false</sort.keepBlankLines>
     <sort.lineSeparator>\n</sort.lineSeparator>
     <sort.sortDependencies>scope,groupId,artifactId</sort.sortDependencies>
@@ -126,6 +125,7 @@
     <sort.sortProperties>true</sort.sortProperties>
     <sort.spaceBeforeCloseEmptyElement>true</sort.spaceBeforeCloseEmptyElement>
     <sort.verifyFail>stop</sort.verifyFail>
+    <sort.verifyFailOn>strict</sort.verifyFailOn>
     <!-- spotbugs-maven-plugin configuration -->
     <spotbugs.effort>Max</spotbugs.effort>
     <spotbugs.includeTests>true</spotbugs.includeTests>
