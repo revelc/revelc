@@ -72,8 +72,14 @@
     </snapshotRepository>
   </distributionManagement>
   <properties>
+    <!-- maven-assembly-plugin configuration -->
+    <assembly.tarLongFileMode>posix</assembly.tarLongFileMode>
+    <!-- maven-failsafe-plugin configuration -->
+    <failsafe.failIfNoSpecifiedTests>false</failsafe.failIfNoSpecifiedTests>
     <!-- formatter-maven-plugin configuration -->
+    <formatter.configFile>formatter-maven-plugin/eclipse/java.xml</formatter.configFile>
     <formatter.lineEnding>LF</formatter.lineEnding>
+    <formatter.sourceDirectory>${project.build.sourceDirectory}</formatter.sourceDirectory>
     <!-- github configurations for site build and other links -->
     <github.site.repositoryName>${project.artifactId}</github.site.repositoryName>
     <github.site.repositoryOwner>revelc</github.site.repositoryOwner>
@@ -81,8 +87,14 @@
     <gpg.useagent>true</gpg.useagent>
     <!-- impsort-maven-plugin configuration -->
     <impsort.removeUnused>true</impsort.removeUnused>
+    <!-- maven-javadoc-plugin configuration -->
+    <javadoc.doclint>all,-missing</javadoc.doclint>
+    <javadoc.notimestamp>true</javadoc.notimestamp>
+    <!-- mavanagaiata plugin configuration -->
+    <mavanagaiata.skipNoGit>true</mavanagaiata.skipNoGit>
     <!-- maven-compiler-plugin configuration -->
     <maven.compiler.release>17</maven.compiler.release>
+    <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.source>${maven.compiler.release}</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.release}</maven.compiler.target>
     <!-- maven-site-plugin config to skip standard site deployment, because we use github plugin instead -->
@@ -91,9 +103,13 @@
     <maven.version.ignore>.+-SNAPSHOT,(?i).*(alpha|beta)[0-9.-]*,(?i).*[.-](m|rc)[0-9]+</maven.version.ignore>
     <!-- modernizer-maven-plugin configuration -->
     <modernizer.javaVersion>${maven.compiler.target}</modernizer.javaVersion>
+    <!-- timestamp for reproducible outputs, updated on release by the release plugin -->
+    <project.build.outputTimestamp>2024-01-18T12:00:00Z</project.build.outputTimestamp>
     <!-- maven built-in properties used by various plugins -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- apache-rat-plugin configuration -->
+    <rat.consoleOutput>true</rat.consoleOutput>
     <!-- configuration specific to this pom -->
     <revelc.min-build-jdk>${maven.compiler.release}</revelc.min-build-jdk>
     <revelc.min-build-mvn>3.6.3</revelc.min-build-mvn>
@@ -112,11 +128,22 @@
     <sort.spaceBeforeCloseEmptyElement>true</sort.spaceBeforeCloseEmptyElement>
     <sort.verifyFail>stop</sort.verifyFail>
     <sort.verifyFailOn>strict</sort.verifyFailOn>
+    <!-- spotbugs-maven-plugin configuration -->
+    <spotbugs.effort>Max</spotbugs.effort>
+    <spotbugs.includeTests>true</spotbugs.includeTests>
+    <spotbugs.maxRank>20</spotbugs.maxRank>
+    <spotbugs.xmlOutput>true</spotbugs.xmlOutput>
+    <!-- maven-surefire-plugin configuration -->
+    <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.16</version.apache-rat-plugin>
+    <version.build-helper-maven-plugin>3.5.0</version.build-helper-maven-plugin>
+    <version.exec-maven-plugin>3.1.1</version.exec-maven-plugin>
     <version.formatter-maven-plugin>2.23.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.9.0</version.impsort-maven-plugin>
+    <version.junit>5.10.1</version.junit>
     <version.license-maven-plugin>4.3</version.license-maven-plugin>
+    <version.mavanagaiata>1.0.1</version.mavanagaiata>
     <version.maven-assembly-plugin>3.6.0</version.maven-assembly-plugin>
     <version.maven-checkstyle-plugin>3.3.1</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.3.2</version.maven-clean-plugin>
@@ -124,12 +151,14 @@
     <version.maven-dependency-plugin>3.6.1</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.1</version.maven-deploy-plugin>
     <version.maven-enforcer-plugin>3.4.1</version.maven-enforcer-plugin>
+    <version.maven-fluido-skin>1.12.0</version.maven-fluido-skin>
     <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
     <version.maven-install-plugin>3.1.1</version.maven-install-plugin>
     <version.maven-invoker-plugin>3.6.0</version.maven-invoker-plugin>
     <version.maven-jar-plugin>3.3.0</version.maven-jar-plugin>
     <version.maven-javadoc-plugin>3.6.3</version.maven-javadoc-plugin>
-    <version.maven-plugin-plugin>3.11.0</version.maven-plugin-plugin>
+    <version.maven-plugin-api>3.9.6</version.maven-plugin-api>
+    <version.maven-plugin-tools>3.11.0</version.maven-plugin-tools>
     <version.maven-project-info-reports-plugin>3.5.0</version.maven-project-info-reports-plugin>
     <version.maven-release-plugin>3.0.1</version.maven-release-plugin>
     <version.maven-remote-resources-plugin>3.1.0</version.maven-remote-resources-plugin>
@@ -142,9 +171,60 @@
     <version.modernizer-maven-plugin>2.7.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>3.3.0</version.sortpom-maven-plugin>
+    <version.spotbugs-annotations>4.8.3</version.spotbugs-annotations>
     <version.spotbugs-maven-plugin>4.8.3.0</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.16.2</version.versions-maven-plugin>
   </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${version.junit}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-annotations</artifactId>
+        <version>${version.spotbugs-annotations}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-artifact</artifactId>
+        <version>${version.maven-plugin-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-core</artifactId>
+        <version>${version.maven-plugin-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>${version.maven-plugin-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>${version.maven-plugin-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.plugin-tools</groupId>
+        <artifactId>maven-plugin-annotations</artifactId>
+        <version>${version.maven-plugin-tools}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <!-- compile time only dependency not used at runtime -->
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs-annotations</artifactId>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <releases>
@@ -172,16 +252,14 @@
           <version>${version.site-maven-plugin}</version>
         </plugin>
         <plugin>
+          <groupId>com.github.koraktor</groupId>
+          <artifactId>mavanagaiata</artifactId>
+          <version>${version.mavanagaiata}</version>
+        </plugin>
+        <plugin>
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>${version.spotbugs-maven-plugin}</version>
-          <configuration>
-            <xmlOutput>true</xmlOutput>
-            <effort>Max</effort>
-            <failOnError>true</failOnError>
-            <includeTests>true</includeTests>
-            <maxRank>20</maxRank>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>com.mycila</groupId>
@@ -211,6 +289,10 @@ limitations under the License.
                 </excludes>
               </licenseSet>
             </licenseSets>
+            <mapping combine.children="append">
+              <md.vm>XML_STYLE</md.vm>
+              <revelc-maven-plugin>SCRIPT_STYLE</revelc-maven-plugin>
+            </mapping>
           </configuration>
         </plugin>
         <plugin>
@@ -223,7 +305,10 @@ limitations under the License.
           <artifactId>formatter-maven-plugin</artifactId>
           <version>${version.formatter-maven-plugin}</version>
           <configuration>
+            <!-- these create config proxies for properties that aren't properly prefixed -->
+            <configFile>${formatter.configFile}</configFile>
             <lineEnding>${formatter.lineEnding}</lineEnding>
+            <sourceDirectory>${formatter.sourceDirectory}</sourceDirectory>
           </configuration>
         </plugin>
         <plugin>
@@ -247,14 +332,13 @@ limitations under the License.
           <version>${version.maven-compiler-plugin}</version>
           <configuration>
             <compilerArgs>
-              <arg>-Xlint:-processing</arg>
               <arg>-Xlint:all</arg>
+              <arg>-Xlint:-processing</arg>
+              <!-- suppress try to ignore unused variable in try-with-resources -->
+              <arg>-Xlint:-try</arg>
               <arg>-Xmaxwarns</arg>
               <arg>5</arg>
             </compilerArgs>
-            <optimize>true</optimize>
-            <showDeprecation>true</showDeprecation>
-            <showWarnings>true</showWarnings>
           </configuration>
         </plugin>
         <plugin>
@@ -281,6 +365,11 @@ limitations under the License.
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${version.maven-gpg-plugin}</version>
+          <configuration>
+            <gpgArguments>
+              <arg>--digest-algo=SHA512</arg>
+            </gpgArguments>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -302,6 +391,10 @@ limitations under the License.
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
               </manifest>
+              <manifestEntries>
+                <Implementation-Build>${mvngit.commit.id}</Implementation-Build>
+                <Sealed>true</Sealed>
+              </manifestEntries>
             </archive>
           </configuration>
         </plugin>
@@ -309,23 +402,38 @@ limitations under the License.
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${version.maven-javadoc-plugin}</version>
+          <configuration>
+            <!-- these create config proxies for properties that aren't properly prefixed -->
+            <doclint>${javadoc.doclint}</doclint>
+            <notimestamp>${javadoc.notimestamp}</notimestamp>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>${version.maven-plugin-plugin}</version>
+          <version>${version.maven-plugin-tools}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-report-plugin</artifactId>
+          <version>${version.maven-plugin-tools}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>${version.maven-project-info-reports-plugin}</version>
+          <configuration>
+            <pluginManagementExcludes>
+              <exclude>org.eclipse.m2e:lifecycle-mapping</exclude>
+            </pluginManagementExcludes>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${version.maven-release-plugin}</version>
           <configuration>
-            <arguments>-P !autoformat,verifyformat ${revelc.releaseArgs}</arguments>
+            <arguments>-P!autoformat,verifyformat ${revelc.releaseArgs}</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <goals>clean deploy</goals>
             <localCheckout>true</localCheckout>
@@ -358,6 +466,14 @@ limitations under the License.
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${version.maven-site-plugin}</version>
+          <dependencies>
+            <dependency>
+              <!-- listed here for version update checking only -->
+              <groupId>org.apache.maven.skins</groupId>
+              <artifactId>maven-fluido-skin</artifactId>
+              <version>${version.maven-fluido-skin}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -378,9 +494,25 @@ limitations under the License.
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
           <version>${version.apache-rat-plugin}</version>
+          <configuration>
+            <excludes combine.children="append">
+              <exclude>src/main/resources/META-INF/services/*</exclude>
+              <exclude>.github/**</exclude>
+            </excludes>
+          </configuration>
         </plugin>
-        <!-- check for version updates with 'mvn versions:display-plugin-updates' -->
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${version.build-helper-maven-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${version.exec-maven-plugin}</version>
+        </plugin>
+        <plugin>
+          <!-- check for version updates with 'mvn versions:display-plugin-updates' -->
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>${version.versions-maven-plugin}</version>
@@ -394,24 +526,16 @@ limitations under the License.
     </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>com.github.ekryd.sortpom</groupId>
-        <artifactId>sortpom-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>verify-pom</id>
-            <goals>
-              <goal>verify</goal>
-            </goals>
-            <phase>process-resources</phase>
-          </execution>
-        </executions>
+        <!-- this is needed here to build the site, but not to deploy it -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>com.github.github</groupId>
         <artifactId>site-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>default-cli</id>
+            <id>deploy-to-github-pages</id>
             <goals>
               <goal>site</goal>
             </goals>
@@ -429,7 +553,7 @@ limitations under the License.
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-min-build</id>
+            <id>minimum-build-requirements</id>
             <goals>
               <goal>enforce</goal>
             </goals>
@@ -447,6 +571,40 @@ limitations under the License.
               </rules>
             </configuration>
           </execution>
+          <!-- TODO add enhanced rules for dependency convergence -->
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.koraktor</groupId>
+        <artifactId>mavanagaiata</artifactId>
+        <executions>
+          <execution>
+            <id>create-property</id>
+            <goals>
+              <goal>commit</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <failOnWarning>true</failOnWarning>
+          <ignoreUnusedRuntime>true</ignoreUnusedRuntime>
+          <ignoredUnusedDeclaredDependencies combine.children="append">
+            <ignore>com.github.spotbugs:spotbugs-annotations:jar:*</ignore>
+            <ignore>org.junit.jupiter:junit-jupiter-engine:jar:*</ignore>
+          </ignoredUnusedDeclaredDependencies>
+        </configuration>
+        <executions>
+          <execution>
+            <id>dependency-usages</id>
+            <goals>
+              <goal>analyze-only</goal>
+            </goals>
+          </execution>
         </executions>
       </plugin>
       <plugin>
@@ -454,7 +612,7 @@ limitations under the License.
         <artifactId>maven-failsafe-plugin</artifactId>
         <executions>
           <execution>
-            <id>run-integration-tests</id>
+            <id>run</id>
             <goals>
               <goal>integration-test</goal>
               <goal>verify</goal>
@@ -467,16 +625,18 @@ limitations under the License.
         <artifactId>apache-rat-plugin</artifactId>
         <executions>
           <execution>
-            <id>check-licenses</id>
+            <id>license-headers</id>
             <goals>
               <goal>check</goal>
             </goals>
+            <phase>test</phase>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
   <profiles>
+    <!-- TODO make an on-by-default profile for checkstyle and spotbugs -->
     <profile>
       <!-- on by default, but disable with '-P !autoformat' or '-Drevelc.skipFormat' -->
       <id>autoformat</id>
@@ -492,7 +652,7 @@ limitations under the License.
             <artifactId>sortpom-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>sort-pom</id>
+                <id>pom</id>
                 <goals>
                   <goal>sort</goal>
                 </goals>
@@ -518,7 +678,7 @@ limitations under the License.
             <artifactId>formatter-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>format-java-source</id>
+                <id>java-sources</id>
                 <goals>
                   <goal>format</goal>
                 </goals>
@@ -530,7 +690,7 @@ limitations under the License.
             <artifactId>impsort-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>sort-imports</id>
+                <id>java-imports</id>
                 <goals>
                   <goal>sort</goal>
                 </goals>
@@ -555,7 +715,7 @@ limitations under the License.
             <artifactId>sortpom-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>verify-sorted-pom</id>
+                <id>sorted-pom</id>
                 <goals>
                   <goal>verify</goal>
                 </goals>
@@ -568,7 +728,7 @@ limitations under the License.
             <artifactId>license-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>verify-license-headers</id>
+                <id>formatted-license-headers</id>
                 <goals>
                   <goal>check</goal>
                 </goals>
@@ -581,7 +741,7 @@ limitations under the License.
             <artifactId>formatter-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>verify-formatted-java-source</id>
+                <id>formatted-java-sources</id>
                 <goals>
                   <goal>validate</goal>
                 </goals>
@@ -593,7 +753,7 @@ limitations under the License.
             <artifactId>impsort-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>verify-sorted-imports</id>
+                <id>sorted-java-imports</id>
                 <goals>
                   <goal>check</goal>
                 </goals>
@@ -604,24 +764,151 @@ limitations under the License.
       </build>
     </profile>
     <profile>
-      <id>eclipse</id>
+      <!-- off by default, but enable with '-P revelc-maven-plugin' or by creating the file -->
+      <id>revelc-maven-plugin</id>
       <activation>
-        <property>
-          <name>m2e.version</name>
-        </property>
+        <file>
+          <exists>src/main/resources/META-INF/revelc/revelc-maven-plugin</exists>
+        </file>
       </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.maven</groupId>
+          <artifactId>maven-artifact</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven</groupId>
+          <artifactId>maven-core</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven</groupId>
+          <artifactId>maven-model</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven</groupId>
+          <artifactId>maven-plugin-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven.plugin-tools</groupId>
+          <artifactId>maven-plugin-annotations</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-engine</artifactId>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
       <build>
-        <pluginManagement>
-          <plugins>
-            <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-            <plugin>
-              <groupId>org.eclipse.m2e</groupId>
-              <artifactId>lifecycle-mapping</artifactId>
-              <version>1.0.0</version>
-              <configuration />
-            </plugin>
-          </plugins>
-        </pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <configuration>
+              <ignoreNonCompile>true</ignoreNonCompile>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-plugin-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-descriptor</id>
+                <goals>
+                  <goal>descriptor</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>help-descriptor</id>
+                <goals>
+                  <goal>helpmojo</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>plugin-integration-tests</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <localRepositoryPath>${project.build.directory}/it-repo</localRepositoryPath>
+                  <settingsFile>src/it/settings.xml</settingsFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-plugin-report-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+    <profile>
+      <id>revelc-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
       </build>
     </profile>
   </profiles>
