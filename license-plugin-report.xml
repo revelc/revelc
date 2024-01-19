@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1705676152588">
+    <module artifactId="revelc" groupId="net.revelc.code" version="4"/>
+    <files>
+        <file path="pom.xml" result="NOOP"/>
+    </files>
+</licensePluginReport>
