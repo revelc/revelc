@@ -127,7 +127,6 @@
     <sort.sortProperties>true</sort.sortProperties>
     <sort.spaceBeforeCloseEmptyElement>true</sort.spaceBeforeCloseEmptyElement>
     <sort.verifyFail>stop</sort.verifyFail>
-    <sort.verifyFailOn>strict</sort.verifyFailOn>
     <!-- spotbugs-maven-plugin configuration -->
     <spotbugs.effort>Max</spotbugs.effort>
     <spotbugs.includeTests>true</spotbugs.includeTests>
