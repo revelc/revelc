@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
+        https://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.revelc.code</groupId>
   <artifactId>revelc</artifactId>
@@ -28,8 +31,8 @@
   </organization>
   <licenses>
     <license>
-      <name>Apache License, Version 2.0</name>
-      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+      <name>Apache-2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -42,18 +45,18 @@
     <mailingList />
   </mailingLists>
   <scm>
-    <connection>scm:git:https://github.com/revelc/revelc.git</connection>
-    <developerConnection>scm:git:git@github.com:revelc/revelc.git</developerConnection>
+    <connection>scm:git:https://github.com/revelc/${github.site.repositoryName}.git</connection>
+    <developerConnection>scm:git:git@github.com:revelc/${github.site.repositoryName}.git</developerConnection>
     <tag>HEAD</tag>
-    <url>https://github.com/revelc/revelc</url>
+    <url>https://github.com/revelc/${github.site.repositoryName}</url>
   </scm>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/revelc/revelc/issues</url>
+    <url>https://github.com/revelc/${github.site.repositoryName}/issues</url>
   </issueManagement>
   <ciManagement>
     <system>GitHub</system>
-    <url>https://github.com/revelc/revelc/actions</url>
+    <url>https://github.com/revelc/${github.site.repositoryName}/actions</url>
   </ciManagement>
   <distributionManagement>
     <!-- https://issues.sonatype.org/browse/OSSRH-15142 -->
@@ -69,20 +72,78 @@
     </snapshotRepository>
   </distributionManagement>
   <properties>
+    <!-- formatter-maven-plugin configuration -->
+    <formatter.lineEnding>LF</formatter.lineEnding>
+    <!-- github configurations for site build and other links -->
     <github.site.repositoryName>${project.artifactId}</github.site.repositoryName>
     <github.site.repositoryOwner>revelc</github.site.repositoryOwner>
+    <!-- maven-gpg-plugin configuration -->
     <gpg.useagent>true</gpg.useagent>
-    <maven.compiler.release>11</maven.compiler.release>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <!-- skip standard site deployment, because site is deployed using github plugin instead -->
+    <!-- impsort-maven-plugin configuration -->
+    <impsort.removeUnused>true</impsort.removeUnused>
+    <!-- maven-compiler-plugin configuration -->
+    <maven.compiler.release>17</maven.compiler.release>
+    <maven.compiler.source>${maven.compiler.release}</maven.compiler.source>
+    <maven.compiler.target>${maven.compiler.release}</maven.compiler.target>
+    <!-- maven-site-plugin config to skip standard site deployment, because we use github plugin instead -->
     <maven.site.deploy.skip>true</maven.site.deploy.skip>
+    <!-- versions-maven-plugin ignore patterns for snapshots, alpha, beta, milestones, and release candidates -->
+    <maven.version.ignore>.+-SNAPSHOT,(?i).*(alpha|beta)[0-9.-]*,(?i).*[.-](m|rc)[0-9]+</maven.version.ignore>
+    <!-- modernizer-maven-plugin configuration -->
+    <modernizer.javaVersion>${maven.compiler.target}</modernizer.javaVersion>
+    <!-- maven built-in properties used by various plugins -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- configuration specific to this pom -->
+    <revelc.min-build-jdk>${maven.compiler.release}</revelc.min-build-jdk>
+    <revelc.min-build-mvn>3.6.3</revelc.min-build-mvn>
     <revelc.releaseArgs />
-    <version.java-min>11</version.java-min>
-    <version.maven-min>3.6.0</version.maven-min>
-    <version.surefire>3.0.0-M3</version.surefire>
+    <!-- sortpom-maven-plugin configuration -->
+    <sort.createBackupFile>false</sort.createBackupFile>
+    <sort.expandEmptyElements>false</sort.expandEmptyElements>
+    <sort.ignoreLineSeparators>false</sort.ignoreLineSeparators>
+    <sort.indentSchemaLocation>true</sort.indentSchemaLocation>
+    <sort.keepBlankLines>false</sort.keepBlankLines>
+    <sort.lineSeparator>\n</sort.lineSeparator>
+    <sort.sortDependencies>scope,groupId,artifactId</sort.sortDependencies>
+    <sort.sortDependencyExclusions>groupId,artifactId</sort.sortDependencyExclusions>
+    <sort.sortModules>true</sort.sortModules>
+    <sort.sortProperties>true</sort.sortProperties>
+    <sort.spaceBeforeCloseEmptyElement>true</sort.spaceBeforeCloseEmptyElement>
+    <sort.verifyFail>stop</sort.verifyFail>
+    <sort.verifyFailOn>strict</sort.verifyFailOn>
+    <!-- version management for plugins and dependencies specified by this pom -->
+    <version.apache-rat-plugin>0.16</version.apache-rat-plugin>
+    <version.formatter-maven-plugin>2.23.0</version.formatter-maven-plugin>
+    <version.impsort-maven-plugin>1.9.0</version.impsort-maven-plugin>
+    <version.license-maven-plugin>4.3</version.license-maven-plugin>
+    <version.maven-assembly-plugin>3.6.0</version.maven-assembly-plugin>
+    <version.maven-checkstyle-plugin>3.3.1</version.maven-checkstyle-plugin>
+    <version.maven-clean-plugin>3.3.2</version.maven-clean-plugin>
+    <version.maven-compiler-plugin>3.12.1</version.maven-compiler-plugin>
+    <version.maven-dependency-plugin>3.6.1</version.maven-dependency-plugin>
+    <version.maven-deploy-plugin>3.1.1</version.maven-deploy-plugin>
+    <version.maven-enforcer-plugin>3.4.1</version.maven-enforcer-plugin>
+    <version.maven-gpg-plugin>3.1.0</version.maven-gpg-plugin>
+    <version.maven-install-plugin>3.1.1</version.maven-install-plugin>
+    <version.maven-invoker-plugin>3.6.0</version.maven-invoker-plugin>
+    <version.maven-jar-plugin>3.3.0</version.maven-jar-plugin>
+    <version.maven-javadoc-plugin>3.6.3</version.maven-javadoc-plugin>
+    <version.maven-plugin-plugin>3.11.0</version.maven-plugin-plugin>
+    <version.maven-project-info-reports-plugin>3.5.0</version.maven-project-info-reports-plugin>
+    <version.maven-release-plugin>3.0.1</version.maven-release-plugin>
+    <version.maven-remote-resources-plugin>3.1.0</version.maven-remote-resources-plugin>
+    <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
+    <version.maven-scm-plugin>2.0.1</version.maven-scm-plugin>
+    <version.maven-scm-publish-plugin>3.2.1</version.maven-scm-publish-plugin>
+    <version.maven-site-plugin>3.12.1</version.maven-site-plugin>
+    <version.maven-source-plugin>3.3.0</version.maven-source-plugin>
+    <version.maven-surefire-plugin>3.2.5</version.maven-surefire-plugin>
+    <version.modernizer-maven-plugin>2.7.0</version.modernizer-maven-plugin>
+    <version.site-maven-plugin>0.12</version.site-maven-plugin>
+    <version.sortpom-maven-plugin>3.3.0</version.sortpom-maven-plugin>
+    <version.spotbugs-maven-plugin>4.8.3.0</version.spotbugs-maven-plugin>
+    <version.versions-maven-plugin>2.16.2</version.versions-maven-plugin>
   </properties>
   <repositories>
     <repository>
@@ -103,47 +164,87 @@
         <plugin>
           <groupId>com.github.ekryd.sortpom</groupId>
           <artifactId>sortpom-maven-plugin</artifactId>
-          <version>2.10.0</version>
-          <configuration>
-            <createBackupFile>false</createBackupFile>
-            <expandEmptyElements>false</expandEmptyElements>
-            <lineSeparator>\n</lineSeparator>
-            <nrOfIndentSpace>2</nrOfIndentSpace>
-            <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
-            <sortDependencies>scope,groupId,artifactId</sortDependencies>
-            <sortProperties>true</sortProperties>
-            <verifyFail>Stop</verifyFail>
-          </configuration>
+          <version>${version.sortpom-maven-plugin}</version>
         </plugin>
         <plugin>
           <groupId>com.github.github</groupId>
           <artifactId>site-maven-plugin</artifactId>
-          <version>0.12</version>
+          <version>${version.site-maven-plugin}</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.8</version>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${version.spotbugs-maven-plugin}</version>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+            <effort>Max</effort>
+            <failOnError>true</failOnError>
+            <includeTests>true</includeTests>
+            <maxRank>20</maxRank>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>${version.license-maven-plugin}</version>
+          <configuration>
+            <licenseSets>
+              <licenseSet>
+                <inlineHeader><![CDATA[
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+]]></inlineHeader>
+                <excludes combine.children="append">
+                  <exclude>**/DEPENDENCIES</exclude>
+                  <exclude>**/LICENSE</exclude>
+                  <exclude>**/NOTICE</exclude>
+                  <exclude>**/target/**</exclude>
+                </excludes>
+              </licenseSet>
+            </licenseSets>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>impsort-maven-plugin</artifactId>
+          <version>${version.impsort-maven-plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>net.revelc.code.formatter</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>${version.formatter-maven-plugin}</version>
+          <configuration>
+            <lineEnding>${formatter.lineEnding}</lineEnding>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>${version.maven-assembly-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${version.maven-checkstyle-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${version.maven-clean-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
+          <version>${version.maven-compiler-plugin}</version>
           <configuration>
             <compilerArgs>
               <arg>-Xlint:-processing</arg>
@@ -159,47 +260,42 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>${version.maven-dependency-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.0.0-M1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-docck-plugin</artifactId>
-          <version>1.1</version>
+          <version>${version.maven-deploy-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.0.0-M2</version>
+          <version>${version.maven-enforcer-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${version.surefire}</version>
+          <version>${version.maven-surefire-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.6</version>
+          <version>${version.maven-gpg-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>${version.maven-install-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-invoker-plugin</artifactId>
-          <version>3.2.1</version>
+          <version>${version.maven-invoker-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.2</version>
+          <version>${version.maven-jar-plugin}</version>
           <configuration>
             <archive>
               <manifest>
@@ -212,111 +308,87 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>${version.maven-javadoc-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>${version.maven-plugin-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>${version.maven-project-info-reports-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>${version.maven-release-plugin}</version>
           <configuration>
-            <arguments>-P!autoformat,revelc-release ${revelc.releaseArgs}</arguments>
+            <arguments>-P !autoformat,verifyformat ${revelc.releaseArgs}</arguments>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
             <goals>clean deploy</goals>
             <localCheckout>true</localCheckout>
             <pushChanges>false</pushChanges>
+            <releaseProfiles>revelc-release</releaseProfiles>
             <useReleaseProfile>false</useReleaseProfile>
-            <waitBeforeTagging>10</waitBeforeTagging>
           </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
-          <version>1.7.0</version>
+          <version>${version.maven-remote-resources-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${version.maven-resources-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
-          <version>1.11.2</version>
+          <version>${version.maven-scm-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-publish-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>${version.maven-scm-publish-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.8.2</version>
+          <version>${version.maven-site-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>${version.maven-source-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>${version.surefire}</version>
+          <version>${version.maven-surefire-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
-          <version>${version.surefire}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>${version.maven-surefire-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
-          <version>0.13</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>clirr-maven-plugin</artifactId>
-          <version>2.8</version>
-        </plugin>
-        <plugin>
-          <groupId>com.github.spotbugs</groupId>
-          <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>4.0.4</version>
-          <configuration>
-            <xmlOutput>true</xmlOutput>
-            <effort>Max</effort>
-            <failOnError>true</failOnError>
-            <includeTests>true</includeTests>
-            <maxRank>16</maxRank>
-          </configuration>
+          <version>${version.apache-rat-plugin}</version>
         </plugin>
         <!-- check for version updates with 'mvn versions:display-plugin-updates' -->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.7</version>
+          <version>${version.versions-maven-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.gaul</groupId>
           <artifactId>modernizer-maven-plugin</artifactId>
-          <version>1.8.0</version>
-          <configuration>
-            <javaVersion>${maven.compiler.target}</javaVersion>
-          </configuration>
+          <version>${version.modernizer-maven-plugin}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -357,7 +429,7 @@
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-basic</id>
+            <id>enforce-min-build</id>
             <goals>
               <goal>enforce</goal>
             </goals>
@@ -365,12 +437,12 @@
             <configuration>
               <rules>
                 <requireJavaVersion>
-                  <version>[${version.java-min},)</version>
-                  <message>This project requires Java ${version.java-min} or later to build</message>
+                  <version>[${revelc.min-build-jdk},)</version>
+                  <message>This project requires Java ${revelc.min-build-jdk} or later to build</message>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[${version.maven-min},)</version>
-                  <message>This project requires Maven ${version.maven-min} or later to build</message>
+                  <version>[${revelc.min-build-mvn},)</version>
+                  <message>This project requires Maven ${revelc.min-build-mvn} or later to build</message>
                 </requireMavenVersion>
               </rules>
             </configuration>
@@ -393,11 +465,6 @@
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>/.travis.yml</exclude>
-          </excludes>
-        </configuration>
         <executions>
           <execution>
             <id>check-licenses</id>
@@ -433,6 +500,106 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>license-headers</id>
+                <goals>
+                  <goal>format</goal>
+                </goals>
+                <phase>process-test-resources</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>net.revelc.code.formatter</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>format-java-source</id>
+                <goals>
+                  <goal>format</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>impsort-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sort-imports</id>
+                <goals>
+                  <goal>sort</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- off by default, but enable with '-P verifyformat' or '-Drevelc.verifyFormat' -->
+      <id>verifyformat</id>
+      <activation>
+        <property>
+          <name>revelc.verifyFormat</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.ekryd.sortpom</groupId>
+            <artifactId>sortpom-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>verify-sorted-pom</id>
+                <goals>
+                  <goal>verify</goal>
+                </goals>
+                <phase>process-resources</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>verify-license-headers</id>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+                <phase>process-test-resources</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>net.revelc.code.formatter</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>verify-formatted-java-source</id>
+                <goals>
+                  <goal>validate</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>impsort-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>verify-sorted-imports</id>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -451,91 +618,7 @@
               <groupId>org.eclipse.m2e</groupId>
               <artifactId>lifecycle-mapping</artifactId>
               <version>1.0.0</version>
-              <configuration>
-                <lifecycleMappingMetadata>
-                  <pluginExecutions>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>com.github.ekryd.sortpom</groupId>
-                        <artifactId>sortpom-maven-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>sort</goal>
-                          <goal>verify</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>enforce</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>install</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-remote-resources-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>process</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>org.apache.rat</groupId>
-                        <artifactId>apache-rat-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>check</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-plugin-plugin</artifactId>
-                        <versionRange>[0,)</versionRange>
-                        <goals>
-                          <goal>descriptor</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                  </pluginExecutions>
-                </lifecycleMappingMetadata>
-              </configuration>
+              <configuration />
             </plugin>
           </plugins>
         </pluginManagement>
