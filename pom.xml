@@ -18,7 +18,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.revelc.code</groupId>
   <artifactId>revelc</artifactId>
-  <version>3</version>
+  <version>4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Revelc Parent POM</name>
   <description>Parent pom to configure common project build tools for Revelc projects</description>
@@ -46,7 +46,7 @@
   <scm>
     <connection>scm:git:https://github.com/revelc/${github.site.repositoryName}.git</connection>
     <developerConnection>scm:git:git@github.com:revelc/${github.site.repositoryName}.git</developerConnection>
-    <tag>revelc-3</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/revelc/${github.site.repositoryName}</url>
   </scm>
   <issueManagement>
@@ -103,7 +103,7 @@
     <!-- modernizer-maven-plugin configuration -->
     <modernizer.javaVersion>${maven.compiler.target}</modernizer.javaVersion>
     <!-- timestamp for reproducible outputs, updated on release by the release plugin -->
-    <project.build.outputTimestamp>2024-01-19T14:29:38Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2024-01-19T14:29:41Z</project.build.outputTimestamp>
     <!-- maven built-in properties used by various plugins -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
