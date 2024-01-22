@@ -150,6 +150,7 @@ limitations under the License.
     <version.apache-rat-plugin>0.16</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.5.0</version.build-helper-maven-plugin>
     <version.exec-maven-plugin>3.1.1</version.exec-maven-plugin>
+    <version.extra-enforcer-rules>1.7.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.23.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.9.0</version.impsort-maven-plugin>
     <version.junit>5.10.1</version.junit>
@@ -913,6 +914,40 @@ limitations under the License.
                 <goals>
                   <goal>jar-no-fork</goal>
                 </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>bytecode-check</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>extra-enforcer-rules</artifactId>
+                <version>${version.extra-enforcer-rules}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <id>enforce-bytecode-version</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <enforceBytecodeVersion>
+                      <maxJdkVersion>${maven.compiler.target}</maxJdkVersion>
+                    </enforceBytecodeVersion>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
               </execution>
             </executions>
           </plugin>
