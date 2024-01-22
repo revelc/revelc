@@ -89,6 +89,19 @@
     <!-- maven-javadoc-plugin configuration -->
     <javadoc.doclint>all,-missing</javadoc.doclint>
     <javadoc.notimestamp>true</javadoc.notimestamp>
+    <licenseText><![CDATA[
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+]]></licenseText>
     <!-- mavanagaiata plugin configuration -->
     <mavanagaiata.skipNoGit>true</mavanagaiata.skipNoGit>
     <!-- maven-compiler-plugin configuration -->
@@ -222,6 +235,16 @@
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -266,19 +289,7 @@
           <configuration>
             <licenseSets>
               <licenseSet>
-                <inlineHeader><![CDATA[
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-]]></inlineHeader>
+                <inlineHeader>${licenseText}</inlineHeader>
                 <excludes combine.children="append">
                   <exclude>**/DEPENDENCIES</exclude>
                   <exclude>**/LICENSE</exclude>
@@ -593,6 +604,7 @@ limitations under the License.
           <ignoreUnusedRuntime>true</ignoreUnusedRuntime>
           <ignoredUnusedDeclaredDependencies combine.children="append">
             <ignore>com.github.spotbugs:spotbugs-annotations:jar:*</ignore>
+            <ignore>org.junit.jupiter:junit-jupiter-api:jar:*</ignore>
             <ignore>org.junit.jupiter:junit-jupiter-engine:jar:*</ignore>
           </ignoredUnusedDeclaredDependencies>
         </configuration>
@@ -633,6 +645,14 @@ limitations under the License.
       </plugin>
     </plugins>
   </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
   <profiles>
     <!-- TODO make an on-by-default profile for checkstyle and spotbugs -->
     <profile>
@@ -794,16 +814,6 @@ limitations under the License.
           <groupId>org.apache.maven.plugin-tools</groupId>
           <artifactId>maven-plugin-annotations</artifactId>
           <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-api</artifactId>
-          <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-engine</artifactId>
-          <scope>test</scope>
         </dependency>
       </dependencies>
       <build>
