@@ -147,7 +147,7 @@ limitations under the License.
     <!-- maven-surefire-plugin configuration -->
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
     <!-- version management for plugins and dependencies specified by this pom -->
-    <version.apache-rat-plugin>0.16</version.apache-rat-plugin>
+    <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.5.0</version.build-helper-maven-plugin>
     <version.exec-maven-plugin>3.1.1</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.7.0</version.extra-enforcer-rules>
