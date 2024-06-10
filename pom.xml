@@ -151,13 +151,13 @@ limitations under the License.
     <version.build-helper-maven-plugin>3.6.0</version.build-helper-maven-plugin>
     <version.exec-maven-plugin>3.3.0</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.8.0</version.extra-enforcer-rules>
-    <version.formatter-maven-plugin>2.24.0</version.formatter-maven-plugin>
+    <version.formatter-maven-plugin>2.24.1</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.10.0</version.impsort-maven-plugin>
     <version.junit>5.10.2</version.junit>
     <version.license-maven-plugin>4.5</version.license-maven-plugin>
     <version.mavanagaiata>1.0.1</version.mavanagaiata>
     <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
-    <version.maven-checkstyle-plugin>3.3.1</version.maven-checkstyle-plugin>
+    <version.maven-checkstyle-plugin>3.4.0</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.3.2</version.maven-clean-plugin>
     <version.maven-compiler-plugin>3.13.0</version.maven-compiler-plugin>
     <version.maven-dependency-plugin>3.6.1</version.maven-dependency-plugin>
