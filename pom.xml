@@ -171,21 +171,21 @@ limitations under the License.
     <version.maven-javadoc-plugin>3.7.0</version.maven-javadoc-plugin>
     <version.maven-plugin-api>3.9.8</version.maven-plugin-api>
     <version.maven-plugin-tools>3.13.1</version.maven-plugin-tools>
-    <version.maven-project-info-reports-plugin>3.6.1</version.maven-project-info-reports-plugin>
-    <version.maven-release-plugin>3.1.0</version.maven-release-plugin>
+    <version.maven-project-info-reports-plugin>3.6.2</version.maven-project-info-reports-plugin>
+    <version.maven-release-plugin>3.1.1</version.maven-release-plugin>
     <version.maven-remote-resources-plugin>3.2.0</version.maven-remote-resources-plugin>
     <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
     <version.maven-scm-plugin>2.1.0</version.maven-scm-plugin>
     <version.maven-scm-publish-plugin>3.3.0</version.maven-scm-publish-plugin>
     <version.maven-site-plugin>3.12.1</version.maven-site-plugin>
     <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
-    <version.maven-surefire-plugin>3.3.0</version.maven-surefire-plugin>
+    <version.maven-surefire-plugin>3.3.1</version.maven-surefire-plugin>
     <version.modernizer-maven-plugin>2.9.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
     <version.spotbugs-annotations>4.8.6</version.spotbugs-annotations>
     <version.spotbugs-maven-plugin>4.8.6.2</version.spotbugs-maven-plugin>
-    <version.versions-maven-plugin>2.17.0</version.versions-maven-plugin>
+    <version.versions-maven-plugin>2.17.1</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
     <dependencies>
