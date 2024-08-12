@@ -149,7 +149,7 @@ limitations under the License.
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.0</version.build-helper-maven-plugin>
-    <version.exec-maven-plugin>3.3.0</version.exec-maven-plugin>
+    <version.exec-maven-plugin>3.4.1</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.8.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.24.1</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.11.0</version.impsort-maven-plugin>
@@ -164,7 +164,7 @@ limitations under the License.
     <version.maven-deploy-plugin>3.1.2</version.maven-deploy-plugin>
     <version.maven-enforcer-plugin>3.5.0</version.maven-enforcer-plugin>
     <version.maven-fluido-skin>1.12.0</version.maven-fluido-skin>
-    <version.maven-gpg-plugin>3.2.4</version.maven-gpg-plugin>
+    <version.maven-gpg-plugin>3.2.5</version.maven-gpg-plugin>
     <version.maven-install-plugin>3.1.2</version.maven-install-plugin>
     <version.maven-invoker-plugin>3.7.0</version.maven-invoker-plugin>
     <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
