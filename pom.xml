@@ -149,7 +149,7 @@ limitations under the License.
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.0</version.build-helper-maven-plugin>
-    <version.exec-maven-plugin>3.4.1</version.exec-maven-plugin>
+    <version.exec-maven-plugin>3.5.0</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.9.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.24.1</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.12.0</version.impsort-maven-plugin>
@@ -157,10 +157,10 @@ limitations under the License.
     <version.license-maven-plugin>4.6</version.license-maven-plugin>
     <version.mavanagaiata>1.0.1</version.mavanagaiata>
     <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
-    <version.maven-checkstyle-plugin>3.5.0</version.maven-checkstyle-plugin>
+    <version.maven-checkstyle-plugin>3.6.0</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.4.0</version.maven-clean-plugin>
     <version.maven-compiler-plugin>3.13.0</version.maven-compiler-plugin>
-    <version.maven-dependency-plugin>3.8.0</version.maven-dependency-plugin>
+    <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.3</version.maven-deploy-plugin>
     <version.maven-enforcer-plugin>3.5.0</version.maven-enforcer-plugin>
     <version.maven-fluido-skin>1.12.0</version.maven-fluido-skin>
@@ -170,14 +170,14 @@ limitations under the License.
     <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
     <version.maven-javadoc-plugin>3.10.1</version.maven-javadoc-plugin>
     <version.maven-plugin-api>3.9.9</version.maven-plugin-api>
-    <version.maven-plugin-tools>3.15.0</version.maven-plugin-tools>
+    <version.maven-plugin-tools>3.15.1</version.maven-plugin-tools>
     <version.maven-project-info-reports-plugin>3.8.0</version.maven-project-info-reports-plugin>
     <version.maven-release-plugin>3.1.1</version.maven-release-plugin>
     <version.maven-remote-resources-plugin>3.2.0</version.maven-remote-resources-plugin>
     <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
     <version.maven-scm-plugin>2.1.0</version.maven-scm-plugin>
     <version.maven-scm-publish-plugin>3.3.0</version.maven-scm-publish-plugin>
-    <version.maven-site-plugin>3.20.0</version.maven-site-plugin>
+    <version.maven-site-plugin>3.21.0</version.maven-site-plugin>
     <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
     <version.maven-surefire-plugin>3.5.1</version.maven-surefire-plugin>
     <version.modernizer-maven-plugin>2.9.0</version.modernizer-maven-plugin>
