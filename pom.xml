@@ -180,10 +180,10 @@ limitations under the License.
     <version.maven-site-plugin>3.21.0</version.maven-site-plugin>
     <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
     <version.maven-surefire-plugin>3.5.2</version.maven-surefire-plugin>
-    <version.modernizer-maven-plugin>3.0.0</version.modernizer-maven-plugin>
+    <version.modernizer-maven-plugin>3.1.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
-    <version.spotbugs-annotations>4.8.6</version.spotbugs-annotations>
+    <version.spotbugs-annotations>4.9.0</version.spotbugs-annotations>
     <version.spotbugs-maven-plugin>4.8.6.6</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.18.0</version.versions-maven-plugin>
   </properties>
