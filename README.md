@@ -27,7 +27,7 @@ Parent pom for revelc projects
 
 This plugin uses a 1-up counter for its versioning.
 
-[ci_img]: https://github.com/revelc/revelc/workflows/mvn%20verify/badge.svg
+[ci_img]: https://github.com/revelc/revelc/actions/workflows/maven.yaml/badge.svg
 [ci_link]: https://github.com/revelc/revelc/actions
 [license_img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
 [license_link]: https://github.com/revelc/revelc/blob/main/LICENSE
