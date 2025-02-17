@@ -151,7 +151,7 @@ limitations under the License.
     <version.build-helper-maven-plugin>3.6.0</version.build-helper-maven-plugin>
     <version.exec-maven-plugin>3.5.0</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.9.0</version.extra-enforcer-rules>
-    <version.formatter-maven-plugin>2.24.1</version.formatter-maven-plugin>
+    <version.formatter-maven-plugin>2.25.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.12.0</version.impsort-maven-plugin>
     <version.junit>5.11.4</version.junit>
     <version.license-maven-plugin>4.6</version.license-maven-plugin>
@@ -184,7 +184,7 @@ limitations under the License.
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
     <version.spotbugs-annotations>4.9.1</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.8.6.6</version.spotbugs-maven-plugin>
+    <version.spotbugs-maven-plugin>4.9.1.0</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.18.0</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
