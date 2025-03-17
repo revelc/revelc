@@ -153,7 +153,7 @@ limitations under the License.
     <version.extra-enforcer-rules>1.9.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.25.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.12.0</version.impsort-maven-plugin>
-    <version.junit>5.12.0</version.junit>
+    <version.junit>5.12.1</version.junit>
     <version.license-maven-plugin>4.6</version.license-maven-plugin>
     <version.mavanagaiata>1.0.1</version.mavanagaiata>
     <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
@@ -163,7 +163,7 @@ limitations under the License.
     <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.4</version.maven-deploy-plugin>
     <version.maven-enforcer-plugin>3.5.0</version.maven-enforcer-plugin>
-    <version.maven-fluido-skin>2.0.1</version.maven-fluido-skin>
+    <version.maven-fluido-skin>2.1.0</version.maven-fluido-skin>
     <version.maven-gpg-plugin>3.2.7</version.maven-gpg-plugin>
     <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
     <version.maven-invoker-plugin>3.9.0</version.maven-invoker-plugin>
@@ -183,8 +183,8 @@ limitations under the License.
     <version.modernizer-maven-plugin>3.1.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
-    <version.spotbugs-annotations>4.9.2</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.9.2.0</version.spotbugs-maven-plugin>
+    <version.spotbugs-annotations>4.9.3</version.spotbugs-annotations>
+    <version.spotbugs-maven-plugin>4.9.3.0</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.18.0</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
