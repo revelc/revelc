@@ -58,16 +58,9 @@
     <url>https://github.com/revelc/${github.site.repositoryName}/actions</url>
   </ciManagement>
   <distributionManagement>
-    <!-- https://issues.sonatype.org/browse/OSSRH-15142 -->
-    <repository>
-      <id>ossrh</id>
-      <name>Sonatype Release Distribution Staging Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
     <snapshotRepository>
-      <id>ossrh</id>
-      <name>Sonatype Snapshot Distribution Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>central</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
   <properties>
@@ -149,6 +142,7 @@ limitations under the License.
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.0</version.build-helper-maven-plugin>
+    <version.central-publishing-maven-plugin>0.7.0</version.central-publishing-maven-plugin>
     <version.exec-maven-plugin>3.5.0</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.10.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.26.0</version.formatter-maven-plugin>
@@ -519,6 +513,15 @@ limitations under the License.
           <artifactId>modernizer-maven-plugin</artifactId>
           <version>${version.modernizer-maven-plugin}</version>
         </plugin>
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>${version.central-publishing-maven-plugin}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <publishingServerId>central</publishingServerId>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -630,6 +633,14 @@ limitations under the License.
             <phase>test</phase>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+        </configuration>
       </plugin>
     </plugins>
   </build>
