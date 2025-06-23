@@ -142,7 +142,7 @@ limitations under the License.
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.1</version.build-helper-maven-plugin>
-    <version.central-publishing-maven-plugin>0.7.0</version.central-publishing-maven-plugin>
+    <version.central-publishing-maven-plugin>0.8.0</version.central-publishing-maven-plugin>
     <version.exec-maven-plugin>3.5.1</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.10.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.26.0</version.formatter-maven-plugin>
