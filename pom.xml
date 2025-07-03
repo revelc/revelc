@@ -156,9 +156,9 @@ limitations under the License.
     <version.maven-compiler-plugin>3.14.0</version.maven-compiler-plugin>
     <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.4</version.maven-deploy-plugin>
-    <version.maven-enforcer-plugin>3.5.0</version.maven-enforcer-plugin>
+    <version.maven-enforcer-plugin>3.6.0</version.maven-enforcer-plugin>
     <version.maven-fluido-skin>2.1.0</version.maven-fluido-skin>
-    <version.maven-gpg-plugin>3.2.7</version.maven-gpg-plugin>
+    <version.maven-gpg-plugin>3.2.8</version.maven-gpg-plugin>
     <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
     <version.maven-invoker-plugin>3.9.1</version.maven-invoker-plugin>
     <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
@@ -556,6 +556,10 @@ limitations under the License.
             <phase>validate</phase>
             <configuration>
               <rules>
+                <banDynamicVersions>
+                  <!-- allow snapshots for multi-module project development -->
+                  <allowSnapshots>true</allowSnapshots>
+                </banDynamicVersions>
                 <requireJavaVersion>
                   <version>[${revelc.min-build-jdk},)</version>
                   <message>This project requires Java ${revelc.min-build-jdk} or later to build</message>
