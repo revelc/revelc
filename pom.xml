@@ -153,7 +153,7 @@ limitations under the License.
     <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
     <version.maven-checkstyle-plugin>3.6.0</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.5.0</version.maven-clean-plugin>
-    <version.maven-compiler-plugin>3.14.0</version.maven-compiler-plugin>
+    <version.maven-compiler-plugin>3.14.1</version.maven-compiler-plugin>
     <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.4</version.maven-deploy-plugin>
     <version.maven-enforcer-plugin>3.6.1</version.maven-enforcer-plugin>
@@ -162,7 +162,7 @@ limitations under the License.
     <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
     <version.maven-invoker-plugin>3.9.1</version.maven-invoker-plugin>
     <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
-    <version.maven-javadoc-plugin>3.11.3</version.maven-javadoc-plugin>
+    <version.maven-javadoc-plugin>3.12.0</version.maven-javadoc-plugin>
     <version.maven-plugin-api>3.9.11</version.maven-plugin-api>
     <version.maven-plugin-tools>3.15.1</version.maven-plugin-tools>
     <version.maven-project-info-reports-plugin>3.9.0</version.maven-project-info-reports-plugin>
@@ -177,9 +177,9 @@ limitations under the License.
     <version.modernizer-maven-plugin>3.2.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
-    <version.spotbugs-annotations>4.9.5</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.9.5.0</version.spotbugs-maven-plugin>
-    <version.versions-maven-plugin>2.19.0</version.versions-maven-plugin>
+    <version.spotbugs-annotations>4.9.6</version.spotbugs-annotations>
+    <version.spotbugs-maven-plugin>4.9.6.0</version.spotbugs-maven-plugin>
+    <version.versions-maven-plugin>2.19.1</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
     <dependencies>
