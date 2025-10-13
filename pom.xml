@@ -143,20 +143,20 @@ limitations under the License.
     <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.1</version.build-helper-maven-plugin>
     <version.central-publishing-maven-plugin>0.9.0</version.central-publishing-maven-plugin>
-    <version.exec-maven-plugin>3.5.1</version.exec-maven-plugin>
-    <version.extra-enforcer-rules>1.10.0</version.extra-enforcer-rules>
+    <version.exec-maven-plugin>3.6.1</version.exec-maven-plugin>
+    <version.extra-enforcer-rules>1.11.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.29.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.12.0</version.impsort-maven-plugin>
-    <version.junit>5.13.4</version.junit>
+    <version.junit>6.0.0</version.junit>
     <version.license-maven-plugin>5.0.0</version.license-maven-plugin>
     <version.mavanagaiata>1.1.1</version.mavanagaiata>
     <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
     <version.maven-checkstyle-plugin>3.6.0</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.5.0</version.maven-clean-plugin>
     <version.maven-compiler-plugin>3.14.1</version.maven-compiler-plugin>
-    <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
+    <version.maven-dependency-plugin>3.9.0</version.maven-dependency-plugin>
     <version.maven-deploy-plugin>3.1.4</version.maven-deploy-plugin>
-    <version.maven-enforcer-plugin>3.6.1</version.maven-enforcer-plugin>
+    <version.maven-enforcer-plugin>3.6.2</version.maven-enforcer-plugin>
     <version.maven-fluido-skin>2.1.0</version.maven-fluido-skin>
     <version.maven-gpg-plugin>3.2.8</version.maven-gpg-plugin>
     <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
