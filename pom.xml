@@ -140,10 +140,10 @@ limitations under the License.
     <!-- maven-surefire-plugin configuration -->
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
     <!-- version management for plugins and dependencies specified by this pom -->
-    <version.apache-rat-plugin>0.16.1</version.apache-rat-plugin>
+    <version.apache-rat-plugin>0.17</version.apache-rat-plugin>
     <version.build-helper-maven-plugin>3.6.1</version.build-helper-maven-plugin>
     <version.central-publishing-maven-plugin>0.9.0</version.central-publishing-maven-plugin>
-    <version.exec-maven-plugin>3.6.1</version.exec-maven-plugin>
+    <version.exec-maven-plugin>3.6.2</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.11.0</version.extra-enforcer-rules>
     <version.formatter-maven-plugin>2.29.0</version.formatter-maven-plugin>
     <version.impsort-maven-plugin>1.12.0</version.impsort-maven-plugin>
@@ -177,8 +177,8 @@ limitations under the License.
     <version.modernizer-maven-plugin>3.2.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
-    <version.spotbugs-annotations>4.9.6</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.9.6.0</version.spotbugs-maven-plugin>
+    <version.spotbugs-annotations>4.9.8</version.spotbugs-annotations>
+    <version.spotbugs-maven-plugin>4.9.8.1</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.19.1</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
