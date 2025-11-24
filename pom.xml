@@ -178,8 +178,8 @@ limitations under the License.
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
     <version.spotbugs-annotations>4.9.8</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.9.8.1</version.spotbugs-maven-plugin>
-    <version.versions-maven-plugin>2.19.1</version.versions-maven-plugin>
+    <version.spotbugs-maven-plugin>4.9.8.2</version.spotbugs-maven-plugin>
+    <version.versions-maven-plugin>2.20.1</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
     <dependencies>
