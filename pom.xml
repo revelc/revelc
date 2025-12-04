@@ -150,7 +150,7 @@ limitations under the License.
     <version.junit>6.0.1</version.junit>
     <version.license-maven-plugin>5.0.0</version.license-maven-plugin>
     <version.mavanagaiata>1.1.2</version.mavanagaiata>
-    <version.maven-assembly-plugin>3.7.1</version.maven-assembly-plugin>
+    <version.maven-assembly-plugin>3.8.0</version.maven-assembly-plugin>
     <version.maven-checkstyle-plugin>3.6.0</version.maven-checkstyle-plugin>
     <version.maven-clean-plugin>3.5.0</version.maven-clean-plugin>
     <version.maven-compiler-plugin>3.14.1</version.maven-compiler-plugin>
@@ -168,11 +168,11 @@ limitations under the License.
     <version.maven-project-info-reports-plugin>3.9.0</version.maven-project-info-reports-plugin>
     <version.maven-release-plugin>3.2.0</version.maven-release-plugin>
     <version.maven-remote-resources-plugin>3.3.0</version.maven-remote-resources-plugin>
-    <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
+    <version.maven-resources-plugin>3.4.0</version.maven-resources-plugin>
     <version.maven-scm-plugin>2.2.1</version.maven-scm-plugin>
     <version.maven-scm-publish-plugin>3.3.0</version.maven-scm-publish-plugin>
     <version.maven-site-plugin>3.21.0</version.maven-site-plugin>
-    <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
+    <version.maven-source-plugin>3.4.0</version.maven-source-plugin>
     <version.maven-surefire-plugin>3.5.4</version.maven-surefire-plugin>
     <version.modernizer-maven-plugin>3.2.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
