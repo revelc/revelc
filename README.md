@@ -31,5 +31,5 @@ This plugin uses a 1-up counter for its versioning.
 [ci_link]: https://github.com/revelc/revelc/actions
 [license_img]: https://img.shields.io/badge/license-Apache%202.0-blue.svg
 [license_link]: https://github.com/revelc/revelc/blob/main/LICENSE
-[maven_img]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc/badge.svg
-[maven_link]: https://maven-badges.herokuapp.com/maven-central/net.revelc.code/revelc
+[maven_img]: https://img.shields.io/maven-central/v/net.revelc.code/revelc
+[maven_link]: https://central.sonatype.com/artifact/net.revelc.code/revelc
