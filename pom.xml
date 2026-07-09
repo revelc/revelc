@@ -117,7 +117,7 @@ limitations under the License.
     <rat.consoleOutput>true</rat.consoleOutput>
     <!-- configuration specific to this pom -->
     <revelc.min-build-jdk>${maven.compiler.release}</revelc.min-build-jdk>
-    <revelc.min-build-mvn>3.6.3</revelc.min-build-mvn>
+    <revelc.min-build-mvn>3.9.16</revelc.min-build-mvn>
     <revelc.releaseArgs />
     <!-- sortpom-maven-plugin configuration -->
     <sort.createBackupFile>false</sort.createBackupFile>
@@ -486,10 +486,9 @@ limitations under the License.
           <artifactId>apache-rat-plugin</artifactId>
           <version>${version.apache-rat-plugin}</version>
           <configuration>
-            <excludes combine.children="append">
+            <inputExcludes combine.children="append">
               <exclude>src/main/resources/META-INF/services/*</exclude>
-              <exclude>.github/**</exclude>
-            </excludes>
+            </inputExcludes>
           </configuration>
         </plugin>
         <plugin>
