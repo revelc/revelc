@@ -177,8 +177,8 @@ limitations under the License.
     <version.modernizer-maven-plugin>3.5.0</version.modernizer-maven-plugin>
     <version.site-maven-plugin>0.12</version.site-maven-plugin>
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
-    <version.spotbugs-annotations>4.10.3</version.spotbugs-annotations>
-    <version.spotbugs-maven-plugin>4.10.3.0</version.spotbugs-maven-plugin>
+    <version.spotbugs-annotations>4.10.4</version.spotbugs-annotations>
+    <version.spotbugs-maven-plugin>4.10.4.0</version.spotbugs-maven-plugin>
     <version.versions-maven-plugin>2.21.0</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
