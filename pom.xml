@@ -141,7 +141,7 @@ limitations under the License.
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
     <!-- version management for plugins and dependencies specified by this pom -->
     <version.apache-rat-plugin>0.18</version.apache-rat-plugin>
-    <version.build-helper-maven-plugin>3.6.2</version.build-helper-maven-plugin>
+    <version.build-helper-maven-plugin>3.7.0</version.build-helper-maven-plugin>
     <version.central-publishing-maven-plugin>0.12.0</version.central-publishing-maven-plugin>
     <version.exec-maven-plugin>3.6.4</version.exec-maven-plugin>
     <version.extra-enforcer-rules>1.12.1</version.extra-enforcer-rules>
@@ -179,7 +179,7 @@ limitations under the License.
     <version.sortpom-maven-plugin>4.0.0</version.sortpom-maven-plugin>
     <version.spotbugs-annotations>4.10.5</version.spotbugs-annotations>
     <version.spotbugs-maven-plugin>4.10.5.0</version.spotbugs-maven-plugin>
-    <version.versions-maven-plugin>2.23.0</version.versions-maven-plugin>
+    <version.versions-maven-plugin>2.24.0</version.versions-maven-plugin>
   </properties>
   <dependencyManagement>
     <dependencies>
